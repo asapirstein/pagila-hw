@@ -6,10 +6,10 @@
  */
 select country, sum(payment.amount) as profit
 from rental
-inner join payment on rental.customer_id = payment.customer_id
+inner join payment on rental.rental_id = payment.rental_id
 inner join customer on customer.customer_id = rental.customer_id
 inner join address on customer.address_id= address.address_id
 inner join city on address.city_id = city.city_id 
 inner join country on city.country_id = country.country_id
 group by country 
-
+order by country asc

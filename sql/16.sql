@@ -7,6 +7,6 @@ select title, sum(payment.amount) as profit
 from film 
 inner join inventory on film.film_id = inventory.film_id
 inner join rental on inventory.inventory_id = rental.inventory_id
-inner join payment on rental.customer_id = payment.customer_id 
+inner join payment on rental.rental_id = payment.rental_id 
 group by film.title
 order by sum(payment.amount) desc
